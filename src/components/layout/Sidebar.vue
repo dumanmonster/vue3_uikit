@@ -45,14 +45,14 @@ const props = defineProps({
   &__link {
     display: block;
     border-radius: 12px;
-    padding: 10px;
     border: 2px solid #fff;
     transition: 0.2s;
     font-weight: bold;
     margin-bottom: 10px;
     &:hover {
-      border-color: var(--primary);
+      color: var(--primary);
     }
   }
 }
+
 </style>
