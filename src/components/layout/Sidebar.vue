@@ -9,7 +9,7 @@ const links = ref([
 const props = defineProps({
   openSidebar: {
     type: Boolean,
-    required: True,
+    required: true,
   },
 });
 </script>
@@ -39,7 +39,7 @@ const props = defineProps({
   transition: 0.2s;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.07);
   transform: translateX(-250px);
-  &__isopen {
+  &_isopen {
     transform: translateX(0px);
   }
   &__link {

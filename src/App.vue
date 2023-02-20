@@ -13,8 +13,8 @@ const toggleMenu = () => {
   <div class="container">
     <div class="sidebar-toggle" @click="toggleMenu">&#5125;</div>
     <layout-header />
-    <layout-sidebar :openSidebar="isOpenMenu"/>
-    <div class="content">
+    <layout-sidebar :openSidebar="isOpenMenu" />
+    <div :class="['content', { content_full: !isOpenMenu }]">
       <router-view />
     </div>
   </div>
@@ -22,16 +22,18 @@ const toggleMenu = () => {
 
 <style lang="scss">
 @import "./styles/global.scss";
+
 #app {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .content {
   max-width: 1400px;
   margin-left: 250px;
   padding: 30px;
   transition: 0.2s;
-  &._full {
+  &_full {
     margin-left: 0;
   }
 }
@@ -48,5 +50,10 @@ const toggleMenu = () => {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media screen and (max-width: 1023px) {
+  .content {
+    margin-left: 0;
+  }
 }
 </style>
