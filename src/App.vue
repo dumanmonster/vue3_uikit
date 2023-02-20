@@ -1,12 +1,19 @@
 <script setup>
 import LayoutHeader from "@/components/layout/Header.vue";
 import LayoutSidebar from "@/components/layout/Sidebar.vue";
+import { ref } from "vue";
+
+const isOpenMenu = ref(false);
+const toggleMenu = () => {
+  isOpenMenu.value = !isOpenMenu.value;
+};
 </script>
 
 <template>
   <div class="container">
+    <div class="sidebar-toggle" @click="toggleMenu">&#5125;</div>
     <layout-header />
-    <layout-sidebar />
+    <layout-sidebar :openSidebar="isOpenMenu"/>
     <div class="content">
       <router-view />
     </div>
@@ -27,5 +34,19 @@ import LayoutSidebar from "@/components/layout/Sidebar.vue";
   &._full {
     margin-left: 0;
   }
+}
+.sidebar-toggle {
+  position: fixed;
+  left: 0;
+  width: 15px;
+  background: var(--primary-color);
+  height: 100%;
+  top: 62px;
+  z-index: 1;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
