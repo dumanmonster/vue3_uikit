@@ -7,6 +7,7 @@ const links = ref([
   { name: "Checkbox", href: "/checkbox" },
   { name: "RadioButton", href: "/radio-button" },
   { name: "Progress", href: "/progress" },
+  { name: "Input", href: "/input" },
 ]);
 
 const props = defineProps({
