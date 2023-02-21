@@ -4,6 +4,7 @@ import { ref } from "vue";
 const links = ref([
   { name: "Typography", href: "/typography" },
   { name: "Button", href: "/button" },
+  { name: "Checkbox", href: "/checkbox" },
 ]);
 
 const props = defineProps({
@@ -54,5 +55,4 @@ const props = defineProps({
     }
   }
 }
-
 </style>
