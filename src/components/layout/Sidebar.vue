@@ -8,6 +8,7 @@ const links = ref([
   { name: "RadioButton", href: "/radio-button" },
   { name: "Progress", href: "/progress" },
   { name: "Input", href: "/input" },
+  { name: "Tabs", href: "/tabs" },
 ]);
 
 const props = defineProps({
