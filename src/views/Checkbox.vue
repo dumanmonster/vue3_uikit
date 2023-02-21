@@ -26,7 +26,9 @@ const listOfHeroes = ref([
   },
 ]);
 
-const selectedHeroes = ref(['h1', 'h3']);
+const selectedHeroes = ref(["h1", "h3"]);
+
+const switchProfessional = ref(false);
 </script>
 <template>
   <h1 class="heading-1">Checkbox</h1>
@@ -58,6 +60,17 @@ const selectedHeroes = ref(['h1', 'h3']);
       v-model:value="selectedHeroes"
       name="heroes"
       :options="listOfHeroes"
+    />
+  </div>
+  <h2 class="heading-2">Switch</h2>
+  <div class="line">
+    <checkbox
+      label="I'm a professional"
+      id="Switch"
+      name="Switch"
+      value="I'm a professional"
+      v-model:checked="switchProfessional"
+      type="switch"
     />
   </div>
 </template>

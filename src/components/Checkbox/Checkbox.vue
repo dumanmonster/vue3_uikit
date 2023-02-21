@@ -28,13 +28,20 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  type: {
+    type: String,
+    default: "checkbox",
+  },
 });
 
 const emits = defineEmits(["update:checked", "updateCheckboxGroup"]);
 
 const handleClick = (event) => {
   if (props.group) {
-    emits("updateCheckboxGroup", {optionId: props.id, checked: event.target.checked});
+    emits("updateCheckboxGroup", {
+      optionId: props.id,
+      checked: event.target.checked,
+    });
   } else {
     emits("update:checked", event.target.checked);
   }
@@ -42,17 +49,25 @@ const handleClick = (event) => {
 </script>
 
 <template>
-  <input
-    class="checkbox"
-    type="checkbox"
-    :name="name"
-    :id="id"
-    :value="value"
-    :checked="checked"
-    :disabled="disabled"
-    @click="handleClick($event)"
-  />
-  <label :for="id">{{ label }}</label>
+  <div :class="[{ 'switch-container': type === 'switch' }]">
+    <input
+      :class="[
+        { checkbox: type === 'checkbox' },
+        { switch: type === 'switch' },
+      ]"
+      type="checkbox"
+      :name="name"
+      :id="id"
+      :value="value"
+      :checked="checked"
+      :disabled="disabled"
+      @click="handleClick($event)"
+    />
+    <label :for="id">{{ label }}</label>
+    <label :for="id" class="switch__label" v-if="type === 'switch'">{{
+      label
+    }}</label>
+  </div>
 </template>
 <style lang="scss" scoped>
 .checkbox {
